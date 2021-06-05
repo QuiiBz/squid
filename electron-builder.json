@@ -6,6 +6,7 @@
   "copyright": "Copyright © 2021 Squid",
   "productName": "Squid",
   "generateUpdatesFilesForAllChannels": true,
+  "afterPack": "./scripts/snapshot/afterPack.js",
   "extraFiles": ["resources"],
   "asar": false,
   "nsis": {

@@ -3,6 +3,9 @@ node_modules/
 .idea/
 build/icon.*
 common/packages/local/
+/cache
+snapshot_blob.bin
+v8_context_snapshot.arm64.bin
 
 resources/cli/cli.js
 .DS_STORE

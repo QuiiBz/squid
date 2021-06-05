@@ -1,3 +1,6 @@
+// Load snapshot
+require('../common/v8-snapshot');
+
 import React, { lazy, Suspense } from 'react';
 import { render } from 'react-dom';
 import ConfigContext from '@ui/contexts/ConfigContext';

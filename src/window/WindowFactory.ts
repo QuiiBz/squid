@@ -83,12 +83,17 @@ export default class WindowFactory implements Factory<BrowserWindow> {
             transparent: true,
             title: 'Squid',
             titleBarStyle: 'hidden',
+            trafficLightPosition: {
+                x: 8,
+                y: 6,
+            },
             frame: !isWin,
             visualEffectState: 'active', // Always show the vibrancy
             show: false,
             backgroundColor: '#00ffffff',
             webPreferences: {
                 nodeIntegration: true,
+                contextIsolation: false,
                 enableRemoteModule: true,
             },
         } as BrowserWindowConstructorOptions);

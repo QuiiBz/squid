@@ -11,12 +11,15 @@
   "repository": "https://github.com/squidjs/terminal",
   "scripts": {
     "dev": "electron-webpack dev",
-    "compile": "yarn setupIcon && yarn dist:cli && cross-env NODE_ENV=production electron-webpack",
+    "compile": "yarn setupIcon && yarn dist:cli && yarn snapshot && cross-env NODE_ENV=production electron-webpack",
     "dist": "yarn compile && electron-builder",
     "dist:win": "yarn compile && electron-builder -w -p onTagOrDraft",
     "dist:mac": "yarn compile && electron-builder -m -p onTagOrDraft",
     "dist:linux": "yarn compile && electron-builder -l -p onTagOrDraft",
     "dist:cli": "cd cli && yarn dist",
+    "snapshot": "yarn snapshot:create && yarn snapshot:copy",
+    "snapshot:create": "node ./scripts/snapshot/create.js",
+    "snapshot:copy": "node ./scripts/snapshot/copy.js",
     "rebuild": "electron-rebuild",
     "rebuild:arm64": "electron-rebuild -a arm64",
     "test": "yarn lint && yarn unit",
@@ -61,8 +64,10 @@
     "@typescript-eslint/parser": "^4.11.0",
     "copy-dir": "^1.3.0",
     "cross-env": "^7.0.3",
-    "electron": "^11.2.3",
+    "electron": "^13.0.1",
     "electron-builder": "^22.10.5",
+    "electron-link": "^0.6.0",
+    "electron-mksnapshot": "^13.0.0",
     "electron-rebuild": "^2.3.5",
     "electron-webpack": "^2.8.2",
     "electron-webpack-ts": "^4.0.1",
@@ -80,5 +85,8 @@
   },
   "optionalDependencies": {
     "native-reg": "^0.3.4"
+  },
+  "resolutions": {
+    "node-abi": "https://github.com/lgeiger/node-abi.git#a790e7a5362a45388fb74f3156186f57d04fb4a2"
   }
 }
